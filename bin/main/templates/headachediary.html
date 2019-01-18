@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Handling Form Submission</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Headache Diary Form</h1>
+    <form action="#" th:action="@{/headachediary1}" th:object="${diary}" method="post">
+    	<p>Month: <input type="text" th:field="*{month}"/></p>
+    	<p>Day: <input type="text" th:field="*{day}"></p>
+    	<p>Headache: <input type="text" th:field="*{headache}"/></p>
+    	<p>Aura: <input type="text" th:field="*{aura}"/></p>
+    	<p>Period: <input type="text" th:field="*{period}"/></p>
+    	<p>Life Style: <input type="text" th:field="*{lifestyle}"/></p>
+    	<p>Treatment: <input type="text" th:field="*{treatment}"/></p>
+    	<p>Effectiveness: <input type="text" th:field="*{effectiveness}"/></p>
+    	<div>Stable Preventive
+    		<p>Medicine: <input type="text" th:field="*{stableprev}"/> Doses: <input type="text" th:field="*{stableprev}"/></p>
+    	</div>
+    	<div>New Preventive
+    		<p>Medicine: <input type="text" th:field="*{newprev}"/> Doses: <input type="text" th:field="*{newprev}"/></p>
+    	</div>
+    	<p>Notes: <input type="text" th:field="*{notes}"/></p>
+    	<p><input type="submit" value="OK"/> <input type="reset" value="Reset"/></p>
+    </form>
+</body>
+</html>
