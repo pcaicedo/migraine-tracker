@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Headache Diary Form</h1>
-    <form action="#" th:action="@{/headachediary1}" th:object="${diary}" method="post">
+    <form action="#" th:action="@{/greeting1}" th:object="${diary}" method="post">
     	<p>Month: <input type="text" th:field="*{month}"/></p>
     	<p>Day: <input type="text" th:field="*{day}"></p>
     	<p>Headache: <input type="text" th:field="*{headache}"/></p>
@@ -16,7 +16,20 @@
     	<p>Treatment: <input type="text" th:field="*{treatment}"/></p>
     	<p>Effectiveness: <input type="text" th:field="*{effectiveness}"/></p>
     	<div>Stable Preventive
-    		<p>Medicine: <input type="text" th:field="*{stableprev}"/> Doses: <input type="text" th:field="*{stableprev}"/></p>
+    		<table>
+    			<thead>
+    				<tr>
+			   			<th>Desc</th>
+			   			<th>Doses</th>
+			   		</tr>
+			   	</thead>
+			   	<tbody>	
+	    			<tr th:each="sp : ${diary.getStableprev()}">
+	    				<td><input type="text" th:value="${sp.value}"/></td>
+						<td><input type="text" th:value="${sp.key}" /></td>
+					</tr>
+				</tbody>
+			</table>
     	</div>
     	<div>New Preventive
     		<p>Medicine: <input type="text" th:field="*{newprev}"/> Doses: <input type="text" th:field="*{newprev}"/></p>

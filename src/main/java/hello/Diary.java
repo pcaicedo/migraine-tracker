@@ -13,7 +13,7 @@ public class Diary {
 	private String lifestyle;	//E=exercise, S=sleep routine, M=meditaVon. R=relaxation. Any code you choose is good.
 	private String[] treatment;	//You may use initials (Z=zomig, N=naproxen...)
 	private String effectiveness;	//F=faillure, P=partial benefit, S=success, R=recurrence (pain comes back the same day). E = side effects.
-	private Map<String, String> stableprev = new HashMap<String, String>();	//Medicine name and doses
+	private HashMap<String, String> stableprev;	//Medicine name and doses
 	private HashMap<String, String> newprev;	//Medicine name and doses
 	private String notes;	//To tack anything else
 	
@@ -71,7 +71,7 @@ public class Diary {
 	public void setEffectiveness(String effectiveness) {
 		this.effectiveness = effectiveness;
 	}
-	public Map<String, String> getStableprev() {
+	public HashMap<String, String> getStableprev() {
 		return stableprev;
 	}
 	public void setStableprev(HashMap<String, String> stableprev) {
