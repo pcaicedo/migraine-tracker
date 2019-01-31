@@ -1,11 +1,11 @@
 package hello;
 
 import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 public class Diary {
 	private long chartnum;	//Unique diary identifier
-	private String month;	//January..December
+	private List<String> month;	//January..December
 	private int day;	//1..31
 	private String headache;	//0= headache free, 1=mild, 2=moderate, 3=severe
 	private String Aura;	//V = visual, S= sensory, M=motor, C = cognitive or speech, Ve = vesVbular
@@ -23,10 +23,10 @@ public class Diary {
 	public void setChartnum(long chartnum) {
 		this.chartnum = chartnum;
 	}
-	public String getMonth() {
+	public List<String> getMonth() {
 		return month;
 	}
-	public void setMonth(String month) {
+	public void setMonth(List<String> month) {
 		this.month = month;
 	}
 	public int getDay() {

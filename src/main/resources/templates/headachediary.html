@@ -6,8 +6,12 @@
 </head>
 <body>
     <h1>Headache Diary Form</h1>
-    <form action="#" th:action="@{/greeting1}" th:object="${diary}" method="post">
-    	<p>Month: <input type="text" th:field="*{month}"/></p>
+    <form action="#" th:action="@{/headachediary}" th:object="${diaryform}" method="post">
+    	<p>Month:
+    		<select>
+    			<option th:each="month : ${diaryform.getMonth()}" th:text="${month}"></option>
+    		</select>
+    	</p>
     	<p>Day: <input type="text" th:field="*{day}"></p>
     	<p>Headache: <input type="text" th:field="*{headache}"/></p>
     	<p>Aura: <input type="text" th:field="*{aura}"/></p>
@@ -24,17 +28,31 @@
 			   		</tr>
 			   	</thead>
 			   	<tbody>	
-	    			<tr th:each="sp : ${diary.getStableprev()}">
+	    			<tr th:each="sp : ${diaryform.getStableprev()}">
 	    				<td><input type="text" th:value="${sp.value}"/></td>
 						<td><input type="text" th:value="${sp.key}" /></td>
 					</tr>
 				</tbody>
 			</table>
     	</div>
+    	
     	<div>New Preventive
-    		<p>Medicine: <input type="text" th:field="*{newprev}"/> Doses: <input type="text" th:field="*{newprev}"/></p>
+    		<table>
+    			<thead>
+    				<tr>
+    					<th>Desc</th>
+    					<th>Doses</th>
+    				</tr>
+    			</thead>
+    			<tbody>
+    				<tr th:each="nw :${diaryform.getNewprev()}">
+    					<td><input type="text" th:value="${nw.value}"/></td>
+    					<td><input type="text" th:value="${nw.key}"/></td>
+    				</tr>	
+    			</tbody>
+    		</table>
     	</div>
-    	<p>Notes: <input type="text" th:field="*{notes}"/></p>
+    	<p>Notes: <input type="text" size="50px" th:field="*{notes}"/></p>
     	<p><input type="submit" value="OK"/> <input type="reset" value="Reset"/></p>
     </form>
 </body>
